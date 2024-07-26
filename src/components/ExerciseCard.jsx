@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 export default function ExerciseCard(props) {
     const { exercise, i } = props
@@ -8,6 +8,10 @@ export default function ExerciseCard(props) {
     function handleSetIncrement() {
         setSetsComplete((setsCompleted + 1) % 6)
     }
+
+    useEffect(()=>{
+        setSetsComplete(0);
+    },[exercise])
 
     return (
         <div className='p-4 rounded-md flex flex-col gap-4 bg-slate-950 sm:flex-wrap'>
